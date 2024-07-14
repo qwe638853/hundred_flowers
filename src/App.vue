@@ -1,28 +1,33 @@
 <template>
   <div id="app">
     <nav>
-      <a v-for = "(item,idx) in NavItemArr"
-         :key = "item.name"
-         :href = "item.href"
-         :class = "{ active: activeIdx===idx}"
-         @click = "handleMenuFn(idx)"
-         >
-         {{ item.name }}
-        </a>
+      <router-link 
+      v-for = "(item,idx) in NavItemArr"
+      :key = "item.name"
+      :to="item.href"
+      :class = "{active: activeIdx===idx}"
+      @click="handleMenuFn(idx)"
+      class = "nav-link"
+      >
+      {{ item.name }} 
+    </router-link>
     </nav>
+    <router-view></router-view>
   </div>
+  <div class="BackgroundImg"></div>
+
+
 </template>
 
 <script>
-import { ref } from 'vue';
   export default {
     data(){
       return {
         activeIdx : 0,
         NavItemArr : [
           {name:"主頁",href:"javascript:;"},
-          {name:"關於",href:"javascript:;"},
-          {name:"民宿位址",href:"javascript:;"},
+          {name:"關於",href:"/AboutPage"},
+          {name:"民宿位址",href:"/AddressPage"},
           {name:"聯繫我們",href:"javascript:;"},
         ]
       }
@@ -42,43 +47,49 @@ import { ref } from 'vue';
   padding: 0px;
   box-sizing: border-box;
 }
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 html , body{
   width: 100%;
   height: 100%;
-  background-color: bisque;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Noto Sans TC', sans-serif, !important;
+}
+
+.BackgroundImg{
+  width: 100%;
+  height: 100vh;
+  background-image: url(./img/background_img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  
 }
 
 nav{
   display: flex;
   width: 100%;
-  height:10%;
+  height: 10%;
   justify-content:flex-start;
   align-items: center;
-  background-color: aliceblue;
-  box-shadow: 0 0 5px, darkgoldenrod;
-  border-radius: 10px;
+  box-shadow: 0 0 5px, rgb(49, 37, 7);
+  position: absolute;
+  top: 0px;
+  
 }
 
-nav > a{
+.nav-link{
   display: flex;
-  
   padding: 10px;
   margin-top: 10x;
-  width: 100px;
+  width: 200px;
   height: 50px;
-  font-size: 15px;
+  font-size: 20px;
+  font-style: bold;
+  color: #b5b5b5;
   transition: color 0.2s,background 0.2s;
   text-decoration: none;
-  background-color: aliceblue;
+
+ 
 }
 
-nav > a.active{
-  background-color:burlywood;
-}
-
-nav > a.hover{
-  background-color: burlywood ;
-}
 
 </style>
