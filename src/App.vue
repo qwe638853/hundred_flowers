@@ -52,6 +52,10 @@ html , body{
   width: 100%;
   height: 100%;
   font-family: 'Noto Sans TC', sans-serif, !important;
+  font-weight: 600;
+  line-height: 1.63;
+  letter-spacing: 1px;
+  color: #ffffff;
 }
 
 .BackgroundImg{
@@ -72,23 +76,34 @@ nav{
   align-items: center;
   box-shadow: 0 0 5px, rgb(49, 37, 7);
   position: absolute;
-  top: 0px;
-  
+  top: 0px; 
+}
+.nav-link{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    width: 200px;
+    height: 50px;
+    text-decoration:  none;
+    position: relative;
 }
 
-.nav-link{
-  display: flex;
-  padding: 10px;
-  margin-top: 10x;
-  width: 200px;
-  height: 50px;
-  font-size: 20px;
-  font-style: bold;
-  color: #b5b5b5;
-  transition: color 0.2s,background 0.2s;
-  text-decoration: none;
+.nav-link::after{
+  content: "";
+  position: absolute;
+  border-bottom: 2px solid #0f0d0d;
+  left: 50%;
+  right: 50%;
+  bottom: -4px;
+  transition: .3s;
+}
 
- 
+.nav-link:hover::after{
+  left:0%;
+  right: 0%;
+
 }
 
 </style>
