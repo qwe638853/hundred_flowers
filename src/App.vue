@@ -9,7 +9,9 @@
       @click="handleMenuFn(idx)"
       class = "nav-link"
       >
-      {{ item.name }} 
+      <span class="UnL">
+        {{ item.name }} 
+      </span>
     </router-link>
     </nav>
     <router-view></router-view>
@@ -50,12 +52,14 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
 html , body{
   width: 100%;
-  height: 100%;
+  height: 400vh;
   font-family: 'Noto Sans TC', sans-serif, !important;
   font-weight: 600;
   line-height: 1.63;
   letter-spacing: 1px;
   color: #ffffff;
+  margin: 0;
+  padding: 0;
 }
 
 .BackgroundImg{
@@ -70,13 +74,15 @@ html , body{
 
 nav{
   display: flex;
+  padding: 10px;
   width: 100%;
   height: 10%;
   justify-content:flex-start;
   align-items: center;
   box-shadow: 0 0 5px, rgb(49, 37, 7);
-  position: absolute;
+  position: fixed;
   top: 0px; 
+
 }
 .nav-link{
     display: flex;
@@ -87,23 +93,24 @@ nav{
     width: 200px;
     height: 50px;
     text-decoration:  none;
-    position: relative;
 }
 
-.nav-link::after{
+.UnL{
+  font-size: 17px;
+  position: relative;
+}
+.UnL::after{
   content: "";
   position: absolute;
-  border-bottom: 2px solid #0f0d0d;
   left: 50%;
   right: 50%;
-  bottom: -4px;
-  transition: .3s;
+  border-bottom: 2px solid #272626;
+  bottom: -3px;
+  transition: 0.3s;
 }
-
-.nav-link:hover::after{
-  left:0%;
+.UnL:hover::after{
+  left: 0%;
   right: 0%;
-
 }
 
 </style>
