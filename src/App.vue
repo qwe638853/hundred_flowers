@@ -18,6 +18,7 @@
     </nav>
     <router-view></router-view>
     <div class="BackgroundImg" id="HomePage"></div>
+    <div style="height:10vh;"> </div>
     <div class="AboutPage" id="AboutPage">
       <div v-scrollTrigger="handleScroll" class="TextFade">
         <h1 class="AboutTitle">關於</h1>
@@ -34,11 +35,39 @@
         <div id="cover" class="carousel">
           <div><img src="./img/introduce/2023-10-25 (1).jpg" alt=""></div>
           <div><img src="./img/introduce/2023-10-25.jpg" alt=""></div>
-          <div><img src="./img/introduce/2023-12-22.jpg" alt=""></div>
+          <div><img src="./img/Room/493410_0.jpg" alt=""></div>
         </div>
       </div>
     </div>  
-   
+    <div style="height:10vh;"> </div>
+    
+    <div class="RoomIntroduce" id="RoomIntroduce">
+      <h1>房型介紹</h1>
+      <div class="cardContainer">
+        <div v-for= "(item,index) in Roomimg"
+            :key="index" 
+            class="card">
+          <div class="cardInner">
+            <div class="box">
+              <div class="boximg">
+                <img :src="item.img" alt="error">
+              </div>
+              <div class="icon">
+                <a href="#" class="iconbox">
+                  <img :src="item.logo" alt="">
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <div class="content">
+            <h2>{{ item.name }}</h2>
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </div>
   
  
@@ -52,17 +81,27 @@ import $ from 'jquery';
 import 'slick-carousel/slick/slick.min.js';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
+import './style/style.css';
   export default {
     data(){
       return {
         activeIdx : 0,
+        imgg:"/img/Room/493410_0.jpg",
         NavItemArr : [
           {name:"百花林民宿",href:"#HomePage"},
           {name:"關於",href:"#AboutPage"},
+          {name:"房型介紹",href:"#RoomIntroduce"},
           {name:"民宿位址",href:"/AddressPage"},
           {name:"聯繫我們",href:"javascript:;"},
-        ]
+        ],
+        Roomimg :[
+          {name:"白虎四人房",img:require("@/img/Room/493410_0.jpg"),logo:require("@/img/Room/RoomLogo/1.png")},
+          {name:"玄武四人房",img:require("@/img/Room/493431_0.jpg"),logo:require("@/img/Room/RoomLogo/4.png")},
+          {name:"朱雀雙人房",img:require("@/img/Room/493413_0.jpg"),logo:require("@/img/Room/RoomLogo/2.png")},
+          {name:"青龍雙人房",img:require("@/img/Room/493415_0.jpg"),logo:require("@/img/Room/RoomLogo/3.png")},
+          
+        ],
+        
       }
     },
     directives:{
@@ -118,175 +157,3 @@ import 'slick-carousel/slick/slick-theme.css';
 </script>
 
 <!-- box-sizing:border-box 表示設定寬高模式是實際數值(預設會再加上padding and margin)-->
-<style>
-*{
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
-html , body{
-  width: 100%;
-  font-family: 'Noto Sans TC', sans-serif, !important;
-  font-weight: 600;
-  line-height: 1.63;
-  font-size: 18px;
-  color: #4D6A6D;
-  margin: 0;
-  padding: 0;
-  background-color: #eee;
-}
-
-.BackgroundImg{
-  width: 100%;
-  height: 100vh;
-  background-image: url(./img/background_img.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  scroll-snap-align: start;
-}
-
-
-nav{
-  display: flex;
-  padding: 10px;
-  width: 100%;
-  height: 10vh;
-  justify-content:flex-start;
-  align-items: center;
-  position: fixed;
-  top: 0px;
-  & .Logo{
-    height: 120px;
-    width: 120px;
-    background-image: url(./img/LOGO.png);
-    background-size: cover;
-    padding: 0x;
-    margin-top: 10px;
-    margin-right: 30px;
-  }
-
-  & .nav-link{
-    display: flex;
-    padding: 10px;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
-    width: 120px;
-    height: 50px;
-    text-decoration:  none;
-    color: #ffffff; 
-  }
-
-  & .UnL{
-    font-size: 17px;
-    position: relative;
-  }
-  & .UnL::after{
-    content: "";
-    position: absolute;
-    left: 50%;
-    right: 50%;
-    border-bottom: 2px solid #ffffff;
-    bottom: -3px;
-    transition: 0.3s;
-  }
-  & .UnL:hover::after{
-    left: 0%;
-    right: 0%;
-  }
-}
-
-.item{
-  display: flex;
-  width: 300px;
-  height: 300px;
-  list-style-type: none;
-  flex-shrink: 0;
-  z-index: 1;
-  background-position: center;
-  background-size: cover;
-  border-radius: 20px;
-  box-shadow: 0 20px 30px #272626 inset;
-  transition: transform 0.1s, left 0.75s, top 0.7s, width 0.75s, height 0.7s;
-  &:nth-child(1){
-    background-image:url(./img/introduce/2023-10-25.jpg);
-  }
-  &:nth-child(2){
-    background-image:url(./img/introduce/2023-12-06.jpg);
-  }
-  &:nth-child(3){
-    background-image:url(./img/introduce/2023-10-25\ \(1\).jpg);
-  }
-  &:nth-child(4){
-    background-image:url(./img/introduce/2023-12-22.jpg);
-  }
-  
-  
-}
-
-.HorizontalScrolling{
-  display: flex;
-  overflow-x: auto;
-  margin-left: 100vh;
-}
-
-.container{
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-
-}
-.snap-section{
-  height: 100vh;
-  scroll-snap-align: start;
-}
-
-.AboutPage{
-  display: flex;
-  justify-content:space-around;
-  height: 100vh;
-  scroll-snap-align: start;
-  & p{
-    margin-left: 150px;
-  }
-}
-
-.AboutTitle{
-  margin-top: 15vh;
-  margin-left: 150px;
-  font-size: 60px;
-}
-
-.TextFade{
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
-  z-index: 10;
-}
-.FadeisTrue{
-    opacity: 1;
-}
-
-.wrapper{
-  display: flex;
-  align-items: center;
-  margin-top: 30vh;
-  margin-left: 10vh;
-  width: 40%;
-  height: 40%;
-  padding-top: 5px;
-  text-align: center;
-  & .carousel{
-    width: 90%;
-    margin: 0px;
-    & img{
-      width: 100%;
-    }
-  }
-}
-
-
-
-
-</style>
