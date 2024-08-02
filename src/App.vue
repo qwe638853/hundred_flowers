@@ -1,15 +1,15 @@
 <template>
 
-  <div id="app" class="container">
-    <nav>
+  <div id="app" class="container" @scroll="handleNavScroll">
+    <nav ref="Nav">
       <div class="Logo"></div>
       <router-link 
       v-for = "(item,idx) in NavItemArr"
       :key = "item.name"
       :to="item.href"
-      :class = "{active: activeIdx===idx}"
+      :class = "linkClass"
       @click="handleMenuFn(idx)"
-      class = "nav-link"
+      ref="link"
       >
       <span class="UnL">
         {{ item.name }} 
@@ -17,12 +17,12 @@
     </router-link>
     </nav>
     <router-view></router-view>
-    <div class="BackgroundImg" id="HomePage"></div>
-    <div style="height:10vh;"> </div>
-    <div class="AboutPage" id="AboutPage">
+    <div class="BackgroundImg" id="HomePage" ref="HomePage"></div>
+    <div id="AboutPage" style="height:10vh;"> </div>
+    <div class="AboutPage" ref="AboutPage">
       <div v-scrollTrigger="handleScroll" class="TextFade">
         <h1 class="AboutTitle">關於</h1>
-        <p>遠離城市喧囂，藏身於青翠的山林間</p>
+        <p style="margin-top:5vh;">遠離城市喧囂，藏身於青翠的山林間</p>
         <p>百花林民宿，正是現代人理想中的避風港</p>
         <p style="margin-top:10vh;">百花林民宿坐落於南投山上的一間民宿</p>
         <p>這裡可以俯瞰層層疊疊的山巒和無邊的綠野，仿佛置身於仙境</p>
@@ -39,9 +39,8 @@
         </div>
       </div>
     </div>  
-    <div style="height:10vh;"> </div>
-    
-    <div class="RoomIntroduce" id="RoomIntroduce">
+    <div id="RoomIntroduce" style="height:10vh;"> </div>
+    <div class="RoomIntroduce" ref="RoomIntroduce">
       <h1>房型介紹</h1>
       <div class="cardContainer">
         <div v-for= "(item,index) in Roomimg"
@@ -67,6 +66,17 @@
         </div>
       </div>
     </div>
+    <div class="FeaturePage" id="FeaturePage">
+      <h1>民宿特色</h1>
+      <div class="featureContainer">
+        <div v-for="(item, index) in features" :key="index"
+        class="feature">
+          <span class="material-symbols-outlined">{{item.fIcon}}</span>
+          <h2>{{ item.name }}</h2>
+          <p>{{ item.t }}</p>
+        </div>
+      </div>
+    </div>
     
   </div>
   
@@ -85,13 +95,14 @@ import './style/style.css';
   export default {
     data(){
       return {
+        linkClass : "linkDefault",
         activeIdx : 0,
         imgg:"/img/Room/493410_0.jpg",
         NavItemArr : [
           {name:"百花林民宿",href:"#HomePage"},
           {name:"關於",href:"#AboutPage"},
           {name:"房型介紹",href:"#RoomIntroduce"},
-          {name:"民宿位址",href:"/AddressPage"},
+          {name:"民宿特色",href:"#FeaturePage"},
           {name:"聯繫我們",href:"javascript:;"},
         ],
         Roomimg :[
@@ -101,6 +112,14 @@ import './style/style.css';
           {name:"青龍雙人房",img:require("@/img/Room/493415_0.jpg"),logo:require("@/img/Room/RoomLogo/3.png")},
           
         ],
+        features:[
+          {name:"卡拉OK",fIcon:"mic_external_on",t:"提供專業卡拉OK設備，讓您歡唱整個假期"},
+          {name:"烤肉設施",fIcon:"outdoor_grill",t:"設有烤肉空間及設施，享受BBQ的樂趣"},
+          {name:"各類遊戲",fIcon:"casino",t:"提供麻將、撲克牌等等遊戲，讓您晚上也不無聊"},
+          {name:"泡茶空間",fIcon:"local_cafe",t:"設有泡茶空間，無論是品茗聊天還是靜心獨處都非常合適"},
+          {name:"美麗風景",fIcon:"landscape",t:"放眼望去，是大自然；宛如世外桃源，享受寧靜之美"},
+          {name:"鄰近日月潭",fIcon:"near_me",t:"鄰近知名景點日月潭，可輕鬆前往這個地點享受多種活動"},
+        ]
         
       }
     },
@@ -135,8 +154,23 @@ import './style/style.css';
         this.scrollToHash(newhash);
       });
       this.scrollToHash(this.$route.hash);
+      
     },
     methods:{
+      
+      handleNavScroll(){
+        const bottomNav = this.$refs.Nav.getBoundingClientRect().bottom;
+        const bottonHome = this.$refs.HomePage.getBoundingClientRect().bottom;
+        
+        if(bottomNav<bottonHome){
+          this.linkClass = "linkDefault";
+          this.$refs.Nav.style.backgroundColor = "transparent";
+          
+        }else {
+          this.linkClass = "linkBlackMode";
+          this.$refs.Nav.style.backgroundColor = "#eee";
+        }
+      },
       handleMenuFn(idx){
         this.activeIdx = idx;
       },
