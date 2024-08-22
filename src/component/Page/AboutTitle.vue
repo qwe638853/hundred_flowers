@@ -1,6 +1,6 @@
   <template>
       <div class="AboutPage" >
-        <div v-scroll-trigger class="TextFade">
+        <div class="TextFade" :class="{'FadeisTrue':isVisible}">
           <h1 class="AboutTitle">關於</h1>
           <p style="margin-top:5vh;">遠離城市喧囂，藏身於青翠的山林間</p>
           <p>百花林民宿，正是現代人理想中的避風港</p>
@@ -19,12 +19,33 @@
           </div>
         </div>
       </div>  
+      
   </template>
 
   <script>
+  import 'slick-carousel/slick/slick.min.js';
+  import 'slick-carousel/slick/slick.css';
+  import 'slick-carousel/slick/slick-theme.css';
+  import $ from 'jquery';
 
   export default{
     name: "AboutPage",
-    
+    mounted(){
+      this.initSlick();
+    },
+    props: {
+      isVisible:Boolean
+    },
+    methods: {
+      initSlick(){
+        $('.carousel').slick({
+          slidesToShow:1,
+          dots:true,
+          centerMode:true,
+          autoplay:true,
+          autoplaySpeed:3000,
+        });
+      },
+    }
   }
   </script>
