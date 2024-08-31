@@ -57,3 +57,155 @@ export default{
     }
 }
 </script>
+
+<style>
+  .FeaturePage{
+    height: 120vh;
+    & h1{
+      padding-top: 10%;
+      padding-bottom: 5%;
+      text-align: center;
+      font-size: 5vw;
+    }
+  }
+ 
+  .featureContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(30%,1fr));
+    max-width: 1200px;
+    justify-items: center;
+    align-items: center;
+    margin-inline: 10%;
+    gap: 1.5rem;
+    padding: 1vw;
+  }
+  .featureContainer h2{
+    font-size: 1.5vw;
+    color: #eee;
+    padding: 1vw;
+    font-weight: 600;
+  }
+  .featureContainer .material-symbols-outlined{
+    margin-top: 1vw;
+    font-size: 4vw;
+    color: #eee;
+  }
+  
+  .feature{
+    perspective: 1000px;
+    height: 18vw;
+    width: 100%;
+    align-items: center;
+    
+  }
+  .flipContainer{
+    position: relative;
+    height: 100%;
+    border-radius: 1.25rem;
+    
+    background-color: #4D6A6D;
+    transform-style: preserve-3d;
+    transition: all 0.8s;
+  }
+  .back,.front{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    backface-visibility: hidden;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .front{
+    padding: 1vw;
+  }
+  .back{
+    transform: rotateY(180deg);
+    & img{
+      height: 100%;
+      width: 100%;
+      border: 0.2rem solid #272626;
+      object-fit: cover;
+      border-radius: 1.05rem;
+    }
+  }
+  .backFeature .flipContainer{
+    transform: rotateY(180deg);
+  }
+  .frontFeature .flipContainer{
+    transform: rotateY(180deg);
+  }
+  .CenterText{
+
+    text-align: center;
+  }
+  .CenterText span{
+    font-size: 1.2vw;
+  }
+  .inText{
+    display:inline-block;
+    color: #eee;
+    text-align: left;
+    line-height: 1.5;
+    padding-left: 0.5rem;
+    font-weight: 400;
+  }
+
+  @media screen and (max-width:768px) {
+
+    .featureContainer{
+      grid-template-columns: repeat(auto-fit,minmax(33%,1fr));
+
+    }
+
+    .featureContainer h2{
+     padding: 2vw;
+     padding-bottom: 0;
+    }
+    .feature{
+      height: 8rem;
+      width: 100%;
+    }
+    .featureContainer .material-symbols-outlined{
+      margin-top: 2vw;
+      font-size: 4.5vw;
+    }
+    .FeaturePage{
+      height: 80vh;
+    }
+    .inText{
+      padding: 0;
+    }
+
+  }
+   @media screen and (max-width:480px) {
+
+    .featureContainer{
+      grid-template-columns: repeat(auto-fit,minmax(30%,1fr));
+
+    }
+    .featureContainer h2{
+     padding: 2vw;
+     padding-bottom: 0;
+    }
+    .feature{
+      height: 4rem;
+      width: 100%;
+    }
+    .featureContainer .material-symbols-outlined{
+      margin-top: 2vw;
+      font-size: 4.5vw;
+    }
+    .FeaturePage{
+      height: 30vh;
+    }
+    .inText{
+      padding: 0;
+    }
+    .CenterText{
+      transform: translateY(-1.5vw);
+    }
+  }
+</style>
