@@ -27,7 +27,7 @@
             api-key="AIzaSyCaF4BdO7G2hGHtiOvWegqyPqEy_OwloDU"
             class="MapClass"
             :center="MapCenter"
-            :zoom="16">
+            :zoom="MapSize">
           </GoogleMap>
         </div>
         <div class="AddressCell">
@@ -44,12 +44,25 @@ import { GoogleMap} from 'vue3-google-map';
 export default{
     name:"ContactPage",
     data(){
+        
         return {
+            MapSize:16,
             MapCenter:{lat:23.88942370632728, lng:120.9187565787977},
+        }
+    },
+    methods:{
+        SetMapSize(){
+            const screen = window.screen.width;
+            if(screen<=768){
+                this.MapSize = 16   ;
+            }
         }
     },
     components:{
         GoogleMap,
+    },
+    mounted(){
+        this.SetMapSize();
     }
 }
 </script>
@@ -139,6 +152,7 @@ export default{
         margin-left: 9%; 
     }
     .MapContainer{
+        height: 30vw;
         border: 3px  solid rgba(255, 109, 18, 0.4);
         margin-top: 20%;
     }
@@ -166,8 +180,9 @@ export default{
         margin-left: 9%; 
     }
     .MapContainer{
+        height: 45vw;
         border: 1.5px  solid rgba(255, 109, 18, 0.4);
-        margin-top: 45%;
+        margin-top: 35%;
     }
 
 }
