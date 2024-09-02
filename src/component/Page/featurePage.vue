@@ -60,7 +60,7 @@ export default{
 
 <style>
   .FeaturePage{
-    height: 120vh;
+    min-height: 5vh;
     & h1{
       padding-top: 10%;
       padding-bottom: 5%;
@@ -172,9 +172,7 @@ export default{
       margin-top: 2vw;
       font-size: 4.5vw;
     }
-    .FeaturePage{
-      height: 80vh;
-    }
+
     .inText{
       padding: 0;
     }
@@ -198,9 +196,6 @@ export default{
       margin-top: 2vw;
       font-size: 4.5vw;
     }
-    .FeaturePage{
-      height: 30vh;
-    }
     .inText{
       padding: 0;
     }
@@ -208,4 +203,8 @@ export default{
       transform: translateY(-1.5vw);
     }
   }
+  @media screen and (max-width:480px) {
+    
+  }
+
 </style>

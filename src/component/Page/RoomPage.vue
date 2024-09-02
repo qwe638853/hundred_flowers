@@ -45,7 +45,7 @@
     </div>
 
   </div>
-  <div style="height:15vh;"> </div> 
+  <div class="space"> </div> 
 </template>
 
 <script>
@@ -100,7 +100,7 @@
 
 <style>
   .RoomIntroduce{
-    min-height: 100vh;
+    min-height: 60vh;
     & h1{
       padding-left: 9%;
       padding-bottom: 3%;
@@ -267,7 +267,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin:10%;
+    margin:15%;
     height: 6vw;
     width: auto;
 
@@ -283,7 +283,9 @@
     color: #272626;
   }
 
-
+  .space{
+    height: 15vh;
+  }
   @media screen and (max-width: 768px) {
     .sparePartContainer {
       margin-inline: 5vw; 
@@ -303,11 +305,21 @@
     .sparePartContainer {
       grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     }
+
+    h2{
+      font-size: 2.5vw;
+    }
+    .sparePart h3{
+      font-size: 2vw;
+    }
+    .space{
+      height: 10vh;
+    }
   }
+  
 
 
   @media screen and (max-width: 480px) {
-
 
     .cardContainer {
       grid-template-columns: repeat(auto-fit, minmax(50, 1fr)); /* 在小屏幕上單列顯示 */
@@ -331,6 +343,9 @@
 
     .sparePartContainer {
       grid-template-columns: repeat(3, 1fr); /* 在小屏幕上三列顯示 */
+    }
+    .space{
+      height: 5vh;
     }
   } 
 </style>

@@ -30,7 +30,7 @@
             :zoom="16">
           </GoogleMap>
         </div>
-        <div class="ContactCell" style="text-align: center;width: 100%;">
+        <div class="AddressCell">
             <span class="material-symbols-outlined">location_on</span>
             <p>民宿位址:南投縣魚池鄉文正巷2-39號</p>
           </div>
@@ -56,8 +56,10 @@ export default{
 
 <style>
 .ContactPage{
-    margin-top: 50vh;
-    height: 70vh;
+    margin-top: 20%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    min-height: 10vh;
     display: flex;
     background-color: #4D6A6D;
 } 
@@ -67,6 +69,7 @@ export default{
     margin-left: 22%;
     display: flex;
     align-items: center;
+
 }
 .ContactCell img{
     width: 2rem;
@@ -79,7 +82,7 @@ export default{
 }
 .LeftContact h1{
     color: #eee;
-    margin-top: 2rem;
+
     letter-spacing: 4.1vw;
 }
 .LeftContact span{
@@ -91,16 +94,20 @@ export default{
     color: #eee;
 }
 .RightContact{
-      height: 100%;
-      width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
 }
 .MapContainer{
     overflow: hidden;
     border: 5px  solid rgba(255, 109, 18, 0.4);
-    margin-inline: 5rem;
-    margin-top: 4rem;
+   
+
     width: 70%;
-    height: 60%;
+    height: 23vw;
     box-shadow:
         3.2px 3.3px 2.2px rgba(0, 0, 0, 0.021),
         6.4px 6.7px 5.3px rgba(0, 0, 0, 0.04),
@@ -113,6 +120,12 @@ export default{
     height: 100%;
     width: 100%;
 }
+.AddressCell{
+    margin-top: 2rem;
+    display: flex;
+    align-items: center ;
+
+}
 .RightContact span{
     font-size: 2rem;
     color:#eee;         
@@ -121,21 +134,17 @@ export default{
     color: #eee;
 } 
     
-@media screen and (max-width:768px) {
-   
+@media screen and (max-width:768px) {   
     .ContactCell{
         margin-left: 9%; 
     }
     .MapContainer{
-        margin-inline: 3rem;
-
+        border: 3px  solid rgba(255, 109, 18, 0.4);
+        margin-top: 20%;
     }
 }
 
 @media screen and (max-width:480px) {
-    .ContactPage{
-        height: 60vh;
-    }
     h1{
         font-size: 5vw;
     }
@@ -157,11 +166,10 @@ export default{
         margin-left: 9%; 
     }
     .MapContainer{
-        margin-top: 80%;
-        margin-left: 10%;
-        height: 30%;
-        width:80%;
+        border: 1.5px  solid rgba(255, 109, 18, 0.4);
+        margin-top: 45%;
     }
+
 }
 
 </style>

@@ -68,17 +68,19 @@
     display: flex;
     justify-content:space-around;
     height: 85vh;
-    & h1{
-      margin-top: 5vh;
-      margin-left: 17%;
-      font-size: 5vw;
-    }
-    & p{
-      font-size: 1.3vw;
-      margin-left: 17%;
-      color: #272626;
-    }
   }
+  .AboutPage h1{
+    margin-top: 5vh;
+    margin-left: 17%;
+    font-size: 5vw;
+  }
+  .AboutPage p{
+    font-size: 1.3vw;
+    margin-left: 17%;
+    color: #272626;
+  }
+    
+  
 
 
   .TextFade{
@@ -87,6 +89,7 @@
     opacity: 0;
     transition: opacity 2s ease-in-out;
     z-index: 10;
+    padding-right: 5%;
   }
   .FadeisTrue{
       opacity: 1;
@@ -119,5 +122,12 @@
     .AboutPage{
       height: 30vh;
     }
+    .AboutPage p{
+      font-size: 1.6vw;
+    }
+    .wrapper{
+      margin-top: 20%;
+    }
+    
   }
 </style>
