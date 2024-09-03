@@ -33,7 +33,7 @@ export default{
                 {name:"各類遊戲",fIcon:"casino",t:"提供麻將、撲克牌等等遊戲，讓您晚上也不無聊",img:require("@/img/Feature/2023-10-25 (2).jpg"),cardStatus:null},
                 {name:"泡茶空間",fIcon:"local_cafe",t:"設有泡茶空間，無論是品茗聊天還是靜心獨處都非常合適",img:require("@/img/Feature/2023-10-25 (2).jpg"),cardStatus:null},
                 {name:"美麗風景",fIcon:"landscape",t:"放眼望去，是大自然；宛如世外桃源，享受寧靜之美",img:require("@/img/Feature/2023-10-25 (2).jpg"),cardStatus:null},
-                {name:"鄰近日月潭",fIcon:"near_me",t:"鄰近知名景點日月潭，可輕鬆前往這個地點享受多種活動",img:require("@/img/Feature/2023-10-25 (2).jpg"),cardStatus:null},
+                {name:"精緻廚房",fIcon:"skillet",t:"準備了設備齊全的廚房，可以隨心所欲的盡情料理",img:require("@/img/Feature/2023-10-25 (2).jpg"),cardStatus:null},
             ],
         }
     },
@@ -65,7 +65,7 @@ export default{
       padding-top: 10%;
       padding-bottom: 5%;
       text-align: center;
-      font-size: 5vw;
+      font-size: 4.5vw;
     }
   }
  

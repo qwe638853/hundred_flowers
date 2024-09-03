@@ -4,12 +4,11 @@
         <div class="Logo"></div>
       </div>
       
-      <router-link 
-      v-for = "(item,idx) in NavItemArr"
+      <router-link  
+      v-for = "(item) in NavItemArr"
       :key = "item.name"
-      :to="item.href"
+      :to="item.href" replace
       :class = "linkClass"
-      @click="('menuClick',idx)"
       ref="link"
       >
       <span class="UnL">

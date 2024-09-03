@@ -27,15 +27,22 @@
     scroll-snap-align: start;
   }
 
-
- 
-  
-
   .container{
     height: 100vh;
-
     overflow-x: hidden;
   }
+
+  .normalScreenSpace{
+    height: 10vh;
+  }
+  .smallScreenSpace{
+    height: 15vh;
+  }
+  .miniScreenSpace{
+    height: 20vh;
+  }
+
+
   
   
   

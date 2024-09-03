@@ -1,12 +1,14 @@
 <template>
   <div id="app" class="container" @scroll="handleScroll">
-    <NavbarComponent :nav-class="navClass" :link-class="linkClass" @menuClick = "handleMenuFn" ref="Nav" />
+    <NavbarComponent :nav-class="navClass" :link-class="linkClass" ref="Nav" />
     <router-view></router-view>
     <div class="BackgroundImg" id="HomePage" ref="HomePage"></div>
-    <div id="AboutPage" style="height:5vw;"> </div>
+    <div id="AboutPage" :class="spaceClass"> </div>
     <AboutTitle ref="AboutTitle" :is-visible="isAboutVisible"></AboutTitle>
-    <RoomPage id="RoomIntroduce" ref="RoomIntroduce"/>
-    <featurePage id="FeaturePage"/>
+    <div id="RoomIntroduce" :class="spaceClass"></div>
+    <RoomPage ref="RoomIntroduce"/>
+    <div id="FeaturePage" :class="spaceClass"></div>
+    <featurePage/>
     <ContactPage id="ContactPage"/>
 
     
@@ -32,8 +34,9 @@ import ContactPage from './component/Page/ContactPage.vue';
       return {
         linkClass : "linkDefault",
         navClass : "navDefault",
+        spaceClass : "normalScreenSpace",
         activeIdx : 0,
-        isAboutVisible:false,
+        isAboutVisible :false,
       
       }
     },
@@ -60,11 +63,11 @@ import ContactPage from './component/Page/ContactPage.vue';
       this.$watch('$route.hash', (newhash) =>{
         this.scrollToHash(newhash);
       });
-      this.scrollToHash(this.$route.hash);
+
       
     },
     methods:{
-      
+  
       handleScroll(){
         const about = this.$refs.AboutTitle;
         if(about){
@@ -85,18 +88,22 @@ import ContactPage from './component/Page/ContactPage.vue';
           
         }
       },
-      handleMenuFn(idx){
-        this.activeIdx = idx;
-      },
       scrollToHash(hash){
         if(hash){
           const element = document.querySelector(hash);
           if(element){
-            element.scrollIntoView({behavior: 'smooth'});
+            element.scrollIntoView({behavior: 'smooth',block: 'start'});
           }
         }
       },
-      
+      resizeSapce(){
+        const screen = window.screen.width;
+        if(screen<=768){
+          this.spaceClass = "smallScreenSpace";
+        }else if(screen<=480){
+          this.spaceClass = "miniScreenSpace"
+        }
+      },  
       showPopup(){
         this.showPop = true;
         this.$nextTick(() =>{

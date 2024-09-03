@@ -72,7 +72,7 @@
   .AboutPage h1{
     margin-top: 5vh;
     margin-left: 17%;
-    font-size: 5vw;
+    font-size: 4.5vw;
   }
   .AboutPage p{
     font-size: 1.3vw;

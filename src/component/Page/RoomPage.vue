@@ -43,9 +43,7 @@
         <h3>{{ item.name }}</h3>
       </div>
     </div>
-
   </div>
-  <div class="space"> </div> 
 </template>
 
 <script>
@@ -104,8 +102,7 @@
     & h1{
       padding-left: 9%;
       padding-bottom: 3%;
-      padding-top: 5%;
-      font-size: 5vw;
+      font-size: 4.5vw;
     }
   }
   h2{
@@ -259,7 +256,6 @@
   .sparePartContainer{
     margin-inline: 15vw;
     display: grid;
-
     justify-content: center; 
     grid-template-columns:repeat(6,1fr);
   }
@@ -281,10 +277,6 @@
     margin-top:10%;
     font-size: 1.5vw;
     color: #272626;
-  }
-
-  .space{
-    height: 15vh;
   }
   @media screen and (max-width: 768px) {
     .sparePartContainer {
@@ -311,9 +303,6 @@
     }
     .sparePart h3{
       font-size: 2vw;
-    }
-    .space{
-      height: 10vh;
     }
   }
   
@@ -344,8 +333,6 @@
     .sparePartContainer {
       grid-template-columns: repeat(3, 1fr); /* 在小屏幕上三列顯示 */
     }
-    .space{
-      height: 5vh;
-    }
+
   } 
 </style>
