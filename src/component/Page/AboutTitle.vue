@@ -13,9 +13,8 @@
         </div> 
         <div class="wrapper">
           <div class="carousel">
-
-            <div><img src="../../img/introduce/2023-10-25.jpg" alt=""></div>
-            <div><img src="../../img/Room/493410_0.jpg" alt=""></div>
+            <div><img src="@/img/aboutTitle/493425_0.jpg" alt="Beautiful View"></div>
+            <div><img src="@/img/aboutTitle/493428_0.jpg" alt="Beautiful View"></div>
           </div>
         </div>
       </div>  
@@ -44,7 +43,7 @@
           dots:true,
           centerMode:true,
           autoplay:true,
-          autoplaySpeed:3000,
+          autoplaySpeed:4500,
           infinite:true,
           arrows:false,
           centerPadding:'0px',
