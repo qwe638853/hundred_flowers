@@ -10,6 +10,7 @@
       :to="item.href" replace
       :class = "linkClass"
       ref="link"
+      @click.prevent = scrollToHash(item.href)
       >
       <span class="UnL">
         {{ item.name }} 
@@ -34,6 +35,16 @@ export default{
                 {name:"聯繫我們",href:"#ContactPage"},
             ],
         }
+    },
+    methods:{
+      scrollToHash(hash){
+        if(hash){
+          const element = document.querySelector(hash);
+          if(element){
+            element.scrollIntoView({behavior: 'smooth',block: 'start'});
+          }
+        }
+      },
     }
 }
 </script>

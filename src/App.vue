@@ -59,13 +59,6 @@ import ContactPage from './component/Page/ContactPage.vue';
         },
       },
     },
-    mounted() {
-      this.$watch('$route.hash', (newhash) =>{
-        this.scrollToHash(newhash);
-      });
-
-      
-    },
     methods:{
   
       handleScroll(){
@@ -88,14 +81,7 @@ import ContactPage from './component/Page/ContactPage.vue';
           
         }
       },
-      scrollToHash(hash){
-        if(hash){
-          const element = document.querySelector(hash);
-          if(element){
-            element.scrollIntoView({behavior: 'smooth',block: 'start'});
-          }
-        }
-      },
+      
       resizeSapce(){
         const screen = window.screen.width;
         if(screen<=768){

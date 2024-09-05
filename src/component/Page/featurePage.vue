@@ -3,7 +3,7 @@
       <h1>民宿特色</h1>
       <div class="featureContainer">
         <div v-for="(item, index) in features" :key="index"
-        class="feature"  @click="filpFeature(index,item.cardStatus)">
+        class="feature">
           <div class="flipContainer">
             <div class="front">
               <span class="material-symbols-outlined">{{item.fIcon}}</span>
@@ -11,8 +11,11 @@
               <div class="CenterText">
                 <span class="inText">{{ item.t }}</span>
               </div>
+              <div class="flipButton" @click="flipcard(index,item)">
+                <span class="material-symbols-outlined">arrow_forward_ios</span>
+              </div>
             </div>
-            <div class="back">
+            <div class="back" @click="flipcard(index,item)">
               <img :src="item.img" alt="">
             </div>
           </div>
@@ -24,7 +27,7 @@
 <script>
 
 export default{
-    name:"featurePage",
+    name:"featurePage", 
     data(){
         return{
             features:[
@@ -38,21 +41,20 @@ export default{
         }
     },
     methods:{
-        filpFeature(idx,cardStatus){
+      flipcard(idx,item){
         let f = document.querySelectorAll(".feature")[idx];
-        if(cardStatus===null){
+        console.log(item.cardStatus);
+        if(item.cardStatus===null){
           f.classList.add('backFeature');
-          cardStatus=true;
-        }
-        if(!cardStatus){
-          f.classList.toggle('backFeature');
-          f.classList.toggle('frontFeature');
-          cardStatus=false;
+          f.classList.toggle("frontFeature");
+          item.cardStatus=true;
+          
         }else{
-          f.classList.toggle('backFeature');
-          f.classList.toggle('frontFeature');
-          cardStatus=true;
+          f.classList.toggle("backFeature");
+          f.classList.toggle("frontFeature");
         }
+        
+
       },
     }
 }
@@ -152,6 +154,13 @@ export default{
     padding-left: 0.5rem;
     font-weight: 400;
   }
+  .flipButton{
+    position: absolute;
+    bottom: 0.7vw;
+  }
+  .flipButton .material-symbols-outlined{
+    font-size: 2vw;
+  }
 
   @media screen and (max-width:768px) {
 
@@ -165,18 +174,23 @@ export default{
      padding-bottom: 0;
     }
     .feature{
-      height: 8rem;
+      height: 9rem;
       width: 100%;
     }
     .featureContainer .material-symbols-outlined{
       margin-top: 2vw;
       font-size: 4.5vw;
     }
-
     .inText{
       padding: 0;
     }
-
+    .flipButton{
+      position: absolute;
+      bottom: 0.2vw;
+    }
+    .flipButton .material-symbols-outlined{
+      font-size: 1.5vw;
+    }
   }
    @media screen and (max-width:480px) {
 
@@ -189,7 +203,7 @@ export default{
      padding-bottom: 0;
     }
     .feature{
-      height: 4rem;
+      height: 25vw;
       width: 100%;
     }
     .featureContainer .material-symbols-outlined{
@@ -202,9 +216,14 @@ export default{
     .CenterText{
       transform: translateY(-1.5vw);
     }
+    .flipButton{
+      position: absolute;
+      bottom: 0.2vw;
+    }
+    .flipButton .material-symbols-outlined{
+      font-size: 2vw;
+    }
   }
-  @media screen and (max-width:480px) {
-    
-  }
+
 
 </style>
