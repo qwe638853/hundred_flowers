@@ -12,7 +12,7 @@
             </div>
             <div class="icon" @click="showPopup(index)">
               <a href="#" class="iconbox">
-                <img :src="item.logo" alt="">
+                <img :src="item.logo" alt="icon">
               </a>
             </div>
           </div>
@@ -28,7 +28,7 @@
           <div class="popup">
             <div class="fadePopup">
               <div v-for="(item,idx) in popups[showPop]" :key="idx">
-                <img :src=item alt="" loading="lazy">
+                <img :src=item alt="popup" loading="lazy">
                 <span class="material-symbols-outlined" @click="closePopup">close</span>
               </div>
             </div>
@@ -39,7 +39,7 @@
     <div class="sparePartContainer">
       <div v-for="(item,index) in spareParts" :key="index" class="sparePart">
         
-        <img :src="item.icon" alt="">
+        <img :src="item.icon" alt="spareParts_icon">
         <h3>{{ item.name }}</h3>
       </div>
     </div>

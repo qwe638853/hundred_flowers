@@ -16,7 +16,7 @@
               </div>
             </div>
             <div class="back" @click="flipcard(index,item)">
-              <img :src="item.img" alt="">
+              <img :src="item.img" alt="Card_description">
             </div>
           </div>
         </div>

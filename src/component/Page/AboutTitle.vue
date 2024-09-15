@@ -16,7 +16,7 @@
             <div><img src="@/img/aboutTitle/493425_0.jpg" alt="Beautiful View"></div>
             <div><img src="@/img/aboutTitle/493428_0.jpg" alt="Beautiful View"></div>
           </div>
-        </div>
+        </div>  
       </div>  
       
   </template>
