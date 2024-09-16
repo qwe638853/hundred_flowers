@@ -13,8 +13,11 @@
         </div> 
         <div class="wrapper">
           <div class="carousel">
-            <div><img src="@/img/aboutTitle/493425_0.jpg" alt="Beautiful View"></div>
-            <div><img src="@/img/aboutTitle/493428_0.jpg" alt="Beautiful View"></div>
+            <div><img src="@/img/aboutTitle/0.jpg" alt="Beautiful View"></div>
+            <div><img src="@/img/aboutTitle/1.jpg" alt="Beautiful View"></div>
+            <div><img src="@/img/aboutTitle/3.jpg" alt="Beautiful View"></div>
+            <div><img src="@/img/aboutTitle/4.jpg" alt="Beautiful View"></div>
+            <div><img src="@/img/aboutTitle/5.jpg" alt="Beautiful View"></div>
           </div>
         </div>  
       </div>  
@@ -43,7 +46,7 @@
           dots:true,
           centerMode:true,
           autoplay:true,
-          autoplaySpeed:4500,
+          autoplaySpeed:5000,
           infinite:true,
           arrows:false,
           centerPadding:'0px',

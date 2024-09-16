@@ -27,7 +27,7 @@
       <div v-if="showPop!==null" class="overlay">
           <div class="popup">
             <div class="fadePopup">
-              <div v-for="(item,idx) in popups[showPop]" :key="idx">
+              <div v-for="(item,idx) in popups[showPop]" :key="idx" style="background-size:cover;">
                 <img :src=item alt="popup" loading="lazy">
                 <span class="material-symbols-outlined" @click="closePopup">close</span>
               </div>
@@ -186,7 +186,8 @@
   }
   .fadePopup{
     width: 100%;
-    border: 2px solid #272626;
+    background-size: cover;
+    border: 1px solid #272626;
   }
    
   .popAnimation-enter-active{
