@@ -55,16 +55,16 @@
           return{
               showPop: null,
               Roomimg :[
-                {name:"白虎四人房",img:require("@/img/Room/493410_0.jpg"),logo:require("@/img/Room/RoomLogo/1.png")},
-                {name:"玄武四人房",img:require("@/img/Room/493431_0.jpg"),logo:require("@/img/Room/RoomLogo/4.png")},
-                {name:"朱雀雙人房",img:require("@/img/Room/493413_0.jpg"),logo:require("@/img/Room/RoomLogo/2.png")},
-                {name:"青龍雙人房",img:require("@/img/Room/493415_0.jpg"),logo:require("@/img/Room/RoomLogo/3.png")},
+                {name:"朱雀四人房",img:require("@/img/Room/VermilionBird/4.jpg"),logo:require("@/img/Room/RoomLogo/2.png")},
+                {name:"玄武四人房",img:require("@/img/Room/BlackTortoise/3.jpg"),logo:require("@/img/Room/RoomLogo/4.png")},
+                {name:"白虎雙人房",img:require("@/img/Room/WhiteTiger/2.jpg"),logo:require("@/img/Room/RoomLogo/1.png")},
+                {name:"青龍雙人房",img:require("@/img/Room/AzureDragon/3.jpg"),logo:require("@/img/Room/RoomLogo/3.png")},
               ],
               popups:[
-                [require("@/img/introduce/2023-10-25.jpg"),require("@/img/Room/493410_0.jpg")],
-                [require("@/img/introduce/2023-10-25.jpg"),require("@/img/Room/493410_0.jpg")],
-                [require("@/img/introduce/2023-10-25.jpg"),require("@/img/introduce/2023-10-25.jpg")],
-                [require("@/img/introduce/2023-10-25.jpg"),require("@/img/Room/493410_0.jpg")],
+                [require("@/img/Room/VermilionBird/4.jpg"),require("@/img/Room/VermilionBird/2.jpg"),require("@/img/Room/VermilionBird/3.jpg")],
+                [require("@/img/Room/BlackTortoise/3.jpg"),require("@/img/Room/BlackTortoise/2.jpg")],
+                [require("@/img/Room/WhiteTiger/2.jpg"),require("@/img/Room/WhiteTiger/3.jpg"),require("@/img/Room/WhiteTiger/4.jpg")],
+                [require("@/img/Room/AzureDragon/3.jpg"),require("@/img/Room/AzureDragon/4.jpg"),require("@/img/Room/AzureDragon/2.jpg")],
               ],
               spareParts:[
                 {name:"牙刷組",icon:require("@/img/SparePart/brush-teeth.png")},
