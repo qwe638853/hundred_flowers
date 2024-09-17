@@ -33,7 +33,7 @@ export default{
             features:[
                 {name:"娛樂設施",fIcon:"star",t:"提供專業卡拉OK設備、麻將桌，享受各種娛樂",img:require("@/img/Feature/karaoke.jpg"),cardStatus:null},
                 {name:"烤肉設施",fIcon:"outdoor_grill",t:"設有烤肉空間及設施，享受BBQ的樂趣",img:require("@/img/Feature/BBQ.jpg"),cardStatus:null},
-                {name:"溫馨客廳",fIcon:"chair",t:"客廳擁有寬敞的空間和舒適的沙發，簡約的裝潢和現代化的設計營造出高雅的氛圍",img:require("@/img/Feature/livingRoom.jpg"),cardStatus:null},
+                {name:"溫馨客廳",fIcon:"chair",t:"擁有寬敞的空間和舒適的沙發，帶有簡約的裝潢和現代化的設計",img:require("@/img/Feature/livingRoom.jpg"),cardStatus:null},
                 {name:"泡茶空間",fIcon:"local_cafe",t:"設有泡茶空間，無論是品茗聊天還是靜心獨處都非常合適",img:require("@/img/Feature/teaRoom.jpg"),cardStatus:null},
                 {name:"美麗風景",fIcon:"landscape",t:"放眼望去，是大自然；宛如世外桃源，享受寧靜之美",img:require("@/img/Feature/view.jpg"),cardStatus:null},
                 {name:"精緻廚房",fIcon:"skillet",t:"準備了設備齊全的廚房，可以隨心所欲的盡情料理",img:require("@/img/Feature/kitchen.jpg"),cardStatus:null},
@@ -170,11 +170,11 @@ export default{
     }
 
     .featureContainer h2{
-     padding: 2vw;
-     padding-bottom: 0;
+      font-size: 2.5vw;
+      padding: 2.5vw;
     }
     .feature{
-      height: 9rem;
+      height: 12rem;
       width: 100%;
     }
     .featureContainer .material-symbols-outlined{
@@ -182,6 +182,7 @@ export default{
       font-size: 4.5vw;
     }
     .inText{
+      text-align: center;
       padding: 0;
     }
     .flipButton{
@@ -191,6 +192,10 @@ export default{
     .flipButton .material-symbols-outlined{
       font-size: 1.5vw;
     }
+    .CenterText span{
+      font-size: 2vw;
+    }
+    
   }
    @media screen and (max-width:480px) {
 
@@ -199,19 +204,15 @@ export default{
 
     }
     .featureContainer h2{
-     padding: 2vw;
-     padding-bottom: 0;
+     padding: 3vw;
     }
     .feature{
-      height: 25vw;
+      height: 6.5rem;
       width: 100%;
     }
     .featureContainer .material-symbols-outlined{
       margin-top: 2vw;
       font-size: 4.5vw;
-    }
-    .inText{
-      padding: 0;
     }
     .CenterText{
       transform: translateY(-1.5vw);

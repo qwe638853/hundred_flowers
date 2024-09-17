@@ -4,7 +4,9 @@
     <div class="cardContainer">
       <div v-for= "(item,index) in Roomimg"
           :key="index" 
-          class="card">
+          class="card" 
+          @click="showPopup(index)"
+          >
         <div class="cardInner">
           <div class="box">
             <div class="boximg">
@@ -35,14 +37,7 @@
           </div>
       </div>
     </Transition>
-    <h2 style="margin-top: 5vh; margin-bottom: 5vw; text-align: center;">房間內均提供以下物品</h2>
-    <div class="sparePartContainer">
-      <div v-for="(item,index) in spareParts" :key="index" class="sparePart">
-        
-        <img :src="item.icon" alt="spareParts_icon">
-        <h3>{{ item.name }}</h3>
-      </div>
-    </div>
+    
   </div>
 </template>
 
@@ -254,38 +249,8 @@
       }
     }
   }
-  .sparePartContainer{
-    margin-inline: 15vw;
-    display: grid;
-    justify-content: center; 
-    grid-template-columns:repeat(6,1fr);
-  }
-  .sparePart{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin:15%;
-    height: 6vw;
-    width: auto;
-
-  }
-  .sparePart img{
-    height: 80%;
-    width: 80%;
-    object-fit: contain;
-  }
-  .sparePart h3{
-    margin-top:10%;
-    font-size: 1.5vw;
-    color: #272626;
-  }
+ 
   @media screen and (max-width: 768px) {
-    .sparePartContainer {
-      margin-inline: 5vw; 
-      grid-template-columns: repeat(3, 1fr);
-
-    }
-  
     .overlay .popup{
       width: 90%;
       padding-top: 10%;
@@ -293,10 +258,6 @@
 
     .cardContainer {
       grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
-    }
-
-    .sparePartContainer {
-      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     }
 
     h2{

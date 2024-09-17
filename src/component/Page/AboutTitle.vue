@@ -11,7 +11,7 @@
           <p>騎行環湖自行車道或者參觀潭邊的寺廟和文化景點</p>
           <p>無論您是自然愛好者還是文化探索者，都能在此找到樂趣</p>
         </div> 
-        <div class="wrapper">
+        <div class="wrapper" @click="showPopup()">
           <div class="carousel">
             <div><img src="@/img/aboutTitle/0.jpg" alt="Beautiful View"></div>
             <div><img src="@/img/aboutTitle/1.jpg" alt="Beautiful View"></div>
@@ -20,6 +20,23 @@
             <div><img src="@/img/aboutTitle/5.jpg" alt="Beautiful View"></div>
           </div>
         </div>  
+        <Transition name="popAnimation">
+          <div v-if="showPop!==null" class="overlay">
+              <div class="popup">
+                <div class="fadePopup">
+                  <div><img src="@/img/aboutTitle/0.jpg" alt="Beautiful View"><span class="material-symbols-outlined" @click="closePopup">close</span></div>
+                  <div><img src="@/img/aboutTitle/1.jpg" alt="Beautiful View"><span class="material-symbols-outlined" @click="closePopup">close</span></div>
+                  <div><img src="@/img/aboutTitle/3.jpg" alt="Beautiful View"><span class="material-symbols-outlined" @click="closePopup">close</span></div>
+                  <div><img src="@/img/aboutTitle/4.jpg" alt="Beautiful View"><span class="material-symbols-outlined" @click="closePopup">close</span></div>
+                  <div><img src="@/img/aboutTitle/5.jpg" alt="Beautiful View"><span class="material-symbols-outlined" @click="closePopup">close</span></div>
+                    
+                  
+                 
+                </div>
+                
+              </div>
+          </div>
+        </Transition>
       </div>  
       
   </template>
@@ -32,6 +49,12 @@
 
   export default{
     name: "AboutPage",
+    data(){
+      return{
+        showPop: null,
+
+      }
+    },
     mounted(){
       this.initSlick();
       
@@ -40,13 +63,28 @@
       isVisible:Boolean
     },
     methods: {
+      showPopup(){
+          this.showPop = true;
+          this.$nextTick(() =>{
+              $('.fadePopup').slick({
+              dots: true,
+              infinite: true,
+              speed: 500,
+              fade: true,
+              cssEase: 'linear',
+              });
+          });
+      },
+      closePopup(){
+          this.showPop = null;
+      },
       initSlick(){
         $('.carousel').slick({
           slidesToShow:1,
           dots:true,
           centerMode:true,
           autoplay:true,
-          autoplaySpeed:5000,
+          autoplaySpeed:13000,
           infinite:true,
           arrows:false,
           centerPadding:'0px',
@@ -54,7 +92,8 @@
             {
               breakpoint:768,
               settings:{
-                centerPadding:'0px',  
+                centerPadding:'0px',
+                dots:false,  
               }
             }
           ]
@@ -69,7 +108,6 @@
   .AboutPage{
     display: flex;
     justify-content:space-around;
-    height: 85vh;
   }
   .AboutPage h1{
     margin-top: 5vh;
@@ -77,13 +115,37 @@
     font-size: 4.5vw;
   }
   .AboutPage p{
-    font-size: 1.3vw;
+    font-size: 1.2rem;
     margin-left: 17%;
     color: #272626;
   }
+  .popup{
     
-  
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: transparent;
+    margin: auto;
+  }
+  .fadePopup{
+    width: 100%;
+    background-size: cover;
+    border: 1px solid #272626;
+  }
+   
+  .popAnimation-enter-active{
+    animation: fadepop 0.2s ease-out;
+  }
+  .popAnimation-leave-active{
+    animation: fadepop reverse 0.3s ease-out;
+  }
 
+  @keyframes fadepop {
+    0% {transform: scale(0);}
+    100% {transform: scale(1);}
+  }
 
   .TextFade{
     height: 100%;
@@ -96,6 +158,7 @@
   .FadeisTrue{
       opacity: 1;
   }
+  
 
   .wrapper{
     display: flex;
@@ -118,18 +181,45 @@
     object-fit: cover;
 
   }
-
-
-  @media screen and (max-width: 480px) {
-    .AboutPage{
-      height: 30vh;
+  .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 150;
+    backdrop-filter: blur(2px);
+    padding: 4em 0;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
-    .AboutPage p{
-      font-size: 1.6vw;
+    & span{
+      position: absolute;
+      font-size: 3vw;
+      color: #fff;
+      right: 1vw;
+      top: 1vw;
+      cursor: pointer;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .overlay .popup{
+        width: 90%;
+        padding-top: 10%;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .AboutPage p {
+      font-size: 2.2vw;
     }
     .wrapper{
       margin-top: 20%;
     }
-    
+    .overlay .popup{
+      width: 90%;
+    }
   }
 </style>
