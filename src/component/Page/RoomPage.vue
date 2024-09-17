@@ -260,6 +260,7 @@
       grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
     }
 
+
     h2{
       font-size: 2.5vw;
     }

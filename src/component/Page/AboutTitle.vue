@@ -115,7 +115,7 @@
     font-size: 4.5vw;
   }
   .AboutPage p{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-left: 17%;
     color: #272626;
   }

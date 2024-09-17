@@ -62,9 +62,9 @@ export default{
 
 <style>
   .FeaturePage{
-    min-height: 5vh;
+
     & h1{
-      padding-top: 10%;
+      padding-top: 5%;
       padding-bottom: 5%;
       text-align: center;
       font-size: 4.5vw;
