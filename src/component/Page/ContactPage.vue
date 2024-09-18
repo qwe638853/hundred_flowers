@@ -1,7 +1,7 @@
 <template>
      <div class="ContactPage" id="ContactPage">
       <div class=LeftContact>
-        <div style="text-align: center;width: 100%;height: 10%;margin-bottom: 3rem;">
+        <div class="ContactTitle">
           <h1>聯繫我們</h1>
         </div>
         <div class="ContactCell">
@@ -30,9 +30,10 @@
             :zoom="MapSize">
           </GoogleMap>
         </div>
+    
         <div class="AddressCell">
             <span class="material-symbols-outlined">location_on</span>
-            <p>民宿位址:南投縣魚池鄉文正巷2-39號</p>
+            <p>南投縣魚池鄉文正巷2-39號</p>
           </div>
       </div>
     </div>
@@ -68,6 +69,7 @@ export default{
 </script>
 
 <style>
+
 .ContactPage{
     margin-top: 20%;
     padding-top: 5%;
@@ -76,6 +78,10 @@ export default{
     display: flex;
     background-color: #4D6A6D;
 } 
+.ContactTitle{
+    text-align: center;
+    margin-bottom: 3rem;
+}
 .ContactCell{
     margin-top: 2rem;
     width: 80%;
@@ -159,22 +165,28 @@ export default{
 }
 
 @media screen and (max-width:480px) {
+    .ContactTitle{
+        margin-bottom: 1rem;
+    }
     h1{
-        font-size: 5vw;
+        font-size: 6vw;
     }
     .LeftContact span{
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
     .RightContact span{
         margin-left: 0;
         font-size: 1rem;
     }
+    .ContactCell{
+        margin-top: 7vw;
+    }
     .ContactCell img{
-        width: 1rem;
-        height: 1rem;
+        width: 1.5rem;
+        height: 1.5rem;
     }
     p{
-        font-size: 2vw;
+        font-size: 2.5vw;
     }
     .ContactCell{
         margin-left: 9%; 

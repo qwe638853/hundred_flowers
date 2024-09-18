@@ -96,7 +96,7 @@
     min-height: 60vh;
     & h1{
       padding-left: 9%;
-      padding-bottom: 3%;
+      padding-bottom: 5%;
       font-size: 4.5vw;
     }
   }
@@ -272,7 +272,12 @@
 
 
   @media screen and (max-width: 480px) {
-
+    .RoomIntroduce h1{
+      font-size: 8vw;
+    }
+    h2{
+      font-size: 5vw;
+    }
     .cardContainer {
       grid-template-columns: repeat(auto-fit, minmax(50, 1fr)); /* 在小屏幕上單列顯示 */
     }

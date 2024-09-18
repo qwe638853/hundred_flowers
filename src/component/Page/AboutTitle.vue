@@ -212,11 +212,25 @@
     }
   }
   @media screen and (max-width: 480px) {
+    .AboutPage{
+      align-items: center;
+      flex-direction: column;
+    }
+    .AboutPage h1{
+      margin-left: 10%;
+      font-size: 8vw;
+    }
     .AboutPage p {
-      font-size: 2.2vw;
+      margin-left: 10%;
+      font-size: 3.1vw;
     }
     .wrapper{
-      margin-top: 20%;
+      width: 80%;
+      margin-right: 0;
+      margin-top: 10%;
+    }
+    .carousel{
+      width: 100%;
     }
     .overlay .popup{
       width: 90%;

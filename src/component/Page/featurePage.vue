@@ -4,16 +4,17 @@
       <div class="featureContainer">
         <div v-for="(item, index) in features" :key="index"
         class="feature">
-          <div class="flipContainer">
-            <div class="front">
+          <div class="flipContainer" >
+            <div class="front" @click="flipcard(index,item)">
               <span class="material-symbols-outlined">{{item.fIcon}}</span>
               <h2>{{ item.name }}</h2>
               <div class="CenterText">
                 <span class="inText">{{ item.t }}</span>
               </div>
-              <div class="flipButton" @click="flipcard(index,item)">
+              <div class="flipButton" >
                 <span class="material-symbols-outlined">arrow_forward_ios</span>
               </div>
+              
             </div>
             <div class="back" @click="flipcard(index,item)">
               <img :src="item.img" alt="Card_description">
@@ -32,7 +33,7 @@ export default{
         return{
             features:[
                 {name:"娛樂設施",fIcon:"star",t:"提供專業卡拉OK設備、麻將桌，享受各種娛樂",img:require("@/img/Feature/karaoke.jpg"),cardStatus:null},
-                {name:"烤肉設施",fIcon:"outdoor_grill",t:"設有烤肉空間及設施，享受BBQ的樂趣",img:require("@/img/Feature/BBQ.jpg"),cardStatus:null},
+                {name:"烤肉設施",fIcon:"outdoor_grill",t:"戶外設有烤肉空間及設施，享受BBQ的樂趣",img:require("@/img/Feature/BBQ.jpg"),cardStatus:null},
                 {name:"溫馨客廳",fIcon:"chair",t:"擁有寬敞的空間和舒適的沙發，帶有簡約的裝潢和現代化的設計",img:require("@/img/Feature/livingRoom.jpg"),cardStatus:null},
                 {name:"泡茶空間",fIcon:"local_cafe",t:"設有泡茶空間，無論是品茗聊天還是靜心獨處都非常合適",img:require("@/img/Feature/teaRoom.jpg"),cardStatus:null},
                 {name:"美麗風景",fIcon:"landscape",t:"放眼望去，是大自然；宛如世外桃源，享受寧靜之美",img:require("@/img/Feature/view.jpg"),cardStatus:null},
@@ -61,14 +62,11 @@ export default{
 </script>
 
 <style>
-  .FeaturePage{
-
-    & h1{
-      padding-top: 5%;
-      padding-bottom: 5%;
-      text-align: center;
-      font-size: 4.5vw;
-    }
+  .FeaturePage h1{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
+    font-size: 4.5vw;
   }
  
   .featureContainer{
@@ -88,7 +86,7 @@ export default{
     font-weight: 600;
   }
   .featureContainer .material-symbols-outlined{
-    margin-top: 1vw;
+    margin-top: 1vw;  
     font-size: 4vw;
     color: #eee;
   }
@@ -115,6 +113,7 @@ export default{
     position: absolute;
     backface-visibility: hidden;
     align-items: center;
+    justify-content: center;
     top: 0;
     left: 0;
     width: 100%;
@@ -155,18 +154,17 @@ export default{
     font-weight: 400;
   }
   .flipButton{
-    position: absolute;
-    bottom: 0.7vw;
+    margin-bottom: 1.5vw;
   }
   .flipButton .material-symbols-outlined{
     font-size: 2vw;
   }
 
   @media screen and (max-width:768px) {
-
+    
     .featureContainer{
       grid-template-columns: repeat(auto-fit,minmax(33%,1fr));
-
+      gap: 1rem;
     }
 
     .featureContainer h2{
@@ -174,7 +172,7 @@ export default{
       padding: 2.5vw;
     }
     .feature{
-      height: 12rem;
+      height: 15rem;
       width: 100%;
     }
     .featureContainer .material-symbols-outlined{
@@ -185,12 +183,8 @@ export default{
       text-align: center;
       padding: 0;
     }
-    .flipButton{
-      position: absolute;
-      bottom: 0.2vw;
-    }
     .flipButton .material-symbols-outlined{
-      font-size: 1.5vw;
+      font-size: 4vw;
     }
     .CenterText span{
       font-size: 2vw;
@@ -198,31 +192,33 @@ export default{
     
   }
    @media screen and (max-width:480px) {
-
+    .FeaturePage h1{
+      font-size: 8vw;
+    }
     .featureContainer{
-      grid-template-columns: repeat(auto-fit,minmax(30%,1fr));
-
+      grid-template-columns: repeat(auto-fit,minmax(50%,1fr));
     }
     .featureContainer h2{
+     font-size: 6vw;
      padding: 3vw;
     }
     .feature{
-      height: 6.5rem;
+      height: 40vh;
       width: 100%;
     }
     .featureContainer .material-symbols-outlined{
       margin-top: 2vw;
-      font-size: 4.5vw;
+      font-size: 15vw;
     }
     .CenterText{
+      padding: 1vw;
       transform: translateY(-1.5vw);
     }
-    .flipButton{
-      position: absolute;
-      bottom: 0.2vw;
-    }
     .flipButton .material-symbols-outlined{
-      font-size: 2vw;
+      font-size: 6vw;
+    }
+    .CenterText span{
+      font-size: 4vw;
     }
   }
 
